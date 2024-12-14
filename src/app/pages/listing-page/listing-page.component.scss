@@ -1,0 +1,139 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Inter', 'Roboto', sans-serif;
+
+  h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+  }
+
+  .list {
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-color: white;
+
+      thead {
+        background-color: #f8f9fa;
+
+        th {
+          text-align: left;
+          padding: 1rem;
+          color: #333;
+          font-weight: 600;
+          border-bottom: 2px solid #e0e0e0;
+        }
+      }
+
+      tbody {
+        tr {
+          transition: background-color 0.2s ease;
+
+          &:nth-child(even) {
+            background-color: #f4f4f4;
+          }
+
+          &:hover {
+            background-color: #f0f0f0;
+          }
+
+          td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+          }
+
+          button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 0.35rem 0.75rem;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: #1976D2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Estilos para cuando no hay facturas
+  ng-template {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+
+    p {
+      margin-bottom: 1rem;
+      color: #666;
+      font-size: 1.1rem;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+  }
+}
+
+// Estilos responsive
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+
+    table {
+      font-size: 0.9rem;
+
+      td, th {
+        padding: 0.5rem !important;
+      }
+    }
+  }
+}

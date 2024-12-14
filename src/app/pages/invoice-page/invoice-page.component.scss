@@ -1,0 +1,194 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Inter', 'Roboto', sans-serif;
+
+  h2 {
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 2rem;
+
+    fieldset {
+      border: none;
+      margin-bottom: 1.5rem;
+
+      &[formGroupName="customer"] {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: #555;
+          font-weight: 500;
+        }
+
+        input {
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 1rem;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #4CAF50;
+          }
+        }
+      }
+    }
+
+    h3 {
+      color: #333;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 0.5rem;
+    }
+
+    > button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #45a049;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+
+      thead {
+        background-color: #f8f9fa;
+
+        th {
+          padding: 1rem;
+          text-align: left;
+          border-bottom: 2px solid #e0e0e0;
+          color: #333;
+          font-weight: 600;
+        }
+      }
+
+      tbody {
+        tr {
+          transition: background-color 0.2s ease;
+
+          &:nth-child(even) {
+            background-color: #f4f4f4;
+          }
+
+          &:hover {
+            background-color: #f0f0f0;
+          }
+
+          td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+
+            input, select {
+              width: 100%;
+              padding: 0.5rem;
+              border: 1px solid #ddd;
+              border-radius: 3px;
+              font-size: 0.9rem;
+              transition: border-color 0.3s ease;
+
+              &:focus {
+                outline: none;
+                border-color: #4CAF50;
+              }
+            }
+
+            button {
+              background-color: #f44336;
+              color: white;
+              border: none;
+              padding: 0.35rem 0.75rem;
+              border-radius: 3px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+
+              &:hover {
+                background-color: #d32f2f;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    fieldset[formGroupName="totals"] {
+      background-color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+
+      p {
+        margin: 0.5rem 0;
+        display: flex;
+        justify-content: space-between;
+        color: #333;
+        font-weight: 500;
+      }
+    }
+
+    > button[type="button"] {
+      width: 100%;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+      font-weight: 600;
+
+      &:hover {
+        background-color: #1976D2;
+      }
+    }
+  }
+}
+
+// Estilos responsive
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+
+    form {
+      padding: 1rem;
+
+      fieldset[formGroupName="customer"] {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        font-size: 0.9rem;
+
+        td, th {
+          padding: 0.5rem !important;
+        }
+      }
+    }
+  }
+}
