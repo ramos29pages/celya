@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router'; // Import RouterModule
+import { ListingPageComponent } from './pages/listing-page/listing-page.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [
+    RouterModule
+  ],
+  template: `<router-outlet />`,
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'celya';

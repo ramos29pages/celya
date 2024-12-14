@@ -1,0 +1,64 @@
+<section class="container">
+  <h2>{{ isEditing ? 'Editar Factura' : 'Crear Factura' }}</h2>
+
+  <form [formGroup]="invoiceForm">
+    <!-- Encabezado -->
+    <fieldset formGroupName="customer">
+      <label>Nombre del Cliente:</label>
+      <input formControlName="name" type="text" />
+
+      <label>Número de Documento:</label>
+      <input formControlName="documentNumber" type="text" />
+
+      <label>Dirección:</label>
+      <input formControlName="address" type="text" />
+    </fieldset>
+
+    <!-- Detalle -->
+    <h3>Productos</h3>
+    <button type="button" (click)="addProduct()">Agregar Producto</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Número</th>
+          <th>Descripción</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
+          <th>IVA (%)</th>
+          <th>Valor IVA</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody formArrayName="products">
+        <tr *ngFor="let product of products.controls; let i = index" [formGroupName]="i">
+          <td><input formControlName="number" /></td>
+          <td><input formControlName="description" /></td>
+          <td><input formControlName="quantity" type="number" /></td>
+          <td><input formControlName="unitPrice" type="number" /></td>
+          <td>
+            <select formControlName="vat">
+              <option [value]="0">0%</option>
+              <option [value]="12">12%</option>
+              <option [value]="19">19%</option>
+            </select>
+          </td>
+          <td><input formControlName="vatAmount" type="number" /></td>
+          <td><input formControlName="rowTotal" type="number" /></td>
+          <td>
+            <button type="button" (click)="deleteProduct(i)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Totales -->
+    <fieldset formGroupName="totals">
+      <p>Total sin IVA: {{ invoiceForm.get('totals.subtotal')?.value | currency }}</p>
+      <p>Total IVA: {{ invoiceForm.get('totals.totalVat')?.value | currency }}</p>
+      <p>Total + IVA: {{ invoiceForm.get('totals.grandTotal')?.value | currency }}</p>
+    </fieldset>
+
+    <button type="button" (click)="saveInvoice()">Guardar Factura</button>
+  </form>
+</section>

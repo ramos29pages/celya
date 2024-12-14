@@ -1,0 +1,72 @@
+
+<section class="container">
+  <h2>Listado de cotizaciones registradas. <button (click)="createInvoice()">Crear Factura</button></h2>
+
+  <div class="list">
+    <div *ngIf="invoices.length > 0; else noInvoices">
+      <input [(ngModel)]="searchTerm" placeholder="Buscar por nombre o documento" />
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Nro. Documento</th>
+            <th>Total Productos</th>
+            <th>Total General</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let invoice of invoices | filter: searchTerm; trackBy: trackById">
+            <td>{{ invoice.id }}</td>
+            <td>{{ invoice.customer.name }}</td>
+            <td>{{ invoice.customer.documentNumber }}</td>
+            <td>{{ calculateTotalProducts(invoice) }}</td>
+            <td>{{ invoice.totals.grandTotal }}</td>
+            <td>
+              <button (click)="editInvoice(invoice.id)">Editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ng-template #noInvoices>
+      <p>No hay cotizaciones registradas.</p>
+      <button (click)="createInvoice()">Crear Factura</button>
+    </ng-template>
+  </div>
+</section>
+
+
+
+<!-- <section class="container">
+  <h2>Listado de cotizaciones registradas</h2>
+
+  <div class="list">
+    <table *ngIf="invoices.length > 0; else noInvoices">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Nro. Documento</th>
+          <th>Total Productos</th>
+          <th>Total General</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let invoice of invoices; trackBy: trackById">
+          <td>{{ invoice.id }}</td>
+          <td>{{ invoice.customer.name }}</td>
+          <td>{{ invoice.customer.documentNumber }}</td>
+          <td>{{ calculateTotalProducts(invoice) }}</td>
+          <td>{{ invoice.totals.grandTotal }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noInvoices>
+      <p>No hay cotizaciones registradas.</p>
+    </ng-template>
+  </div>
+</section> -->
